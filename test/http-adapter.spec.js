@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import HttpAdapter from '../src/http-adapter';
+import HttpAdapter from '../src/index';
 import sinon from 'sinon';
 import fakeweb from 'node-fakeweb';
 
