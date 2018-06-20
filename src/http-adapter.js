@@ -6,11 +6,19 @@ type UploaderType = (data: Object) => Promise<string>;
 type UpdaterType = (url: string, data: Object) => Promise<string>;
 
 /**
- * Off-chain data adapter for HTTP.
+ * Off-chain data adapter for HTTP(s).
+ *
+ * Optionally accepts an `options` object that can have two attributes:
+ *
+ * - `uploader`: A function responsible for uploading the data.
+ *   It should return a Promise of the resulting URL.
+ *
+ * - `updater`: A function responsible for updating data at
+ *   a given URL. It should return a Promise of the resulting URL.
  */
 class HttpAdapter {
-  uploader: (typeof undefined) | UploaderType;
-  updater: (typeof undefined) | UpdaterType;
+  uploader: UploaderType;
+  updater: UpdaterType;
 
   constructor (options?: {| uploader?: UploaderType, updater?: UpdaterType |}) {
     if (options && options.uploader) {
@@ -32,8 +40,10 @@ class HttpAdapter {
   }
 
   /**
-   * Retrieves data stored under a hash derived from url `bzz-raw://<hash>`
-   * @throws {Error} When hash cannot be detected.
+   * Retrieves data from a url via https.
+   *
+   * @return {Object} Parsed data.
+   * @throw {Error} When server is not available or returns status 4XX or 5XX.
    */
   async download (url: string): Promise<?Object> {
     try {
@@ -60,6 +70,7 @@ class HttpAdapter {
    * initialization.
    *
    * @return {string} Resulting url such as `https://example.com/data`.
+   * @throw {Error} When uploader was not provided.
    */
   async upload (data: Object): Promise<string> {
     if (this.uploader) {
@@ -75,6 +86,7 @@ class HttpAdapter {
    * initialization.
    *
    * @return {string} Resulting url such as `https://example.com/data`.
+   * @throw {Error} When updater was not provided.
    */
   async update (url: string, data: Object): Promise<string> {
     try {

@@ -9,7 +9,15 @@
 
 ## HttpAdapter
 
-Off-chain data adapter for HTTP.
+Off-chain data adapter for HTTP(s).
+
+Optionally accepts an `options` object that can have two attributes:
+
+-   `uploader`: A function responsible for uploading the data.
+    It should return a Promise of the resulting URL.
+
+-   `updater`: A function responsible for updating data at
+    a given URL. It should return a Promise of the resulting URL.
 
 **Parameters**
 
@@ -17,16 +25,13 @@ Off-chain data adapter for HTTP.
 
 ### download
 
-Retrieves data stored under a hash derived from url `bzz-raw://<hash>`
+Retrieves data from a url via https.
 
 **Parameters**
 
 -   `url` **[string][5]** 
 
-
--   Throws **[Error][6]** When hash cannot be detected.
-
-Returns **[Promise][7]&lt;[Object][8]?>** 
+Returns **[Object][6]** Parsed data.
 
 ### upload
 
@@ -37,7 +42,7 @@ initialization.
 
 **Parameters**
 
--   `data` **[Object][8]** 
+-   `data` **[Object][6]** 
 
 Returns **[string][5]** Resulting url such as `https://example.com/data`.
 
@@ -51,7 +56,7 @@ initialization.
 **Parameters**
 
 -   `url` **[string][5]** 
--   `data` **[Object][8]** 
+-   `data` **[Object][6]** 
 
 Returns **[string][5]** Resulting url such as `https://example.com/data`.
 
@@ -65,8 +70,4 @@ Returns **[string][5]** Resulting url such as `https://example.com/data`.
 
 [5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error
-
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
