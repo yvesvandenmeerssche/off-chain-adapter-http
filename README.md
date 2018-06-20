@@ -52,7 +52,7 @@ import AWS from 'aws-sdk';
 
 function s3_uploader (data) {
   let s3 = new AWS.S3({apiVersion: '2006-03-01', region: 'eu-central-1'}),
-	  bucket = 'bucket',
+      bucket = 'bucket',
       key = 'hotel.json',
       params = {
         Bucket: bucket,
