@@ -1,6 +1,6 @@
 {
   "name": "@windingtree/off-chain-adapter-http",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "HTTP(s) adapter for off-chain data storage that can be used in @windingtree/wt-js-libs",
   "main": "dist/node/index.js",
   "scripts": {
