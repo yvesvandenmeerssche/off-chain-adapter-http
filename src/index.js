@@ -58,7 +58,11 @@ class HttpAdapter {
         } else if (response.statusCode >= 400) {
           return reject(new Error(`Error ${response.statusCode}.`));
         }
-        return resolve(JSON.parse(data));
+        try {
+          return resolve(JSON.parse(data));
+        } catch (e) {
+          return reject(e);
+        }
       });
     });
   }
