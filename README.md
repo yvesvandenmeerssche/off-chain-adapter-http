@@ -38,7 +38,7 @@ const libs = WTLibs.createInstance({
 });
 ```
 
-In case we would like to extend it with the upload or update
+In case we need to extend it with the upload or update
 capability, we need to provide the necessary functionality
 from outside:
 
