@@ -48,7 +48,7 @@ Returns **[string][5]** Resulting url such as `https://example.com/data`.
 
 ### update
 
-Modifies data somewhere where they can be accessed via HTTP.
+Modifies data somewhere it can be accessed via HTTP.
 
 Only available when options.updater was provided during
 initialization.
