@@ -43,7 +43,7 @@ class HttpAdapter {
    * Retrieves data from a url via https.
    *
    * @return {Object} Parsed data.
-   * @throw {Error} When server is not available or returns status 4XX or 5XX.
+   * @throw {Error} When the server is not available or returns status 4XX or 5XX.
    */
   async download (url: string): Promise<?Object> {
     try {
@@ -68,13 +68,13 @@ class HttpAdapter {
   }
 
   /**
-   * Stores data somewhere where they can be accessed via HTTP.
+   * Stores data somewhere where it can be accessed via HTTP.
    *
-   * Only available when options.uploader was provided during
+   * Only available when options.uploader is provided during
    * initialization.
    *
    * @return {string} Resulting url such as `https://example.com/data`.
-   * @throw {Error} When uploader was not provided.
+   * @throw {Error} When uploader is not provided.
    */
   async upload (data: Object): Promise<string> {
     if (this.uploader) {
@@ -84,7 +84,7 @@ class HttpAdapter {
   }
 
   /**
-   * Modifies data somewhere where they can be accessed via HTTP.
+   * Modifies data somewhere it can be accessed via HTTP.
    *
    * Only available when options.updater was provided during
    * initialization.
