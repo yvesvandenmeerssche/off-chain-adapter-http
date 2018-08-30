@@ -1,5 +1,7 @@
 # Winding Tree Off Chain Data Adapter - HTTP(s).
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/windingtree/off-chain-adapter-http.svg)](https://greenkeeper.io/)
+
 HTTP adapter for off-chain data that can be used in Winding Tree [wt-js-libs](https://github.com/windingtree/wt-js-libs).
 
 ## Installation
