@@ -3,9 +3,13 @@
 ### Table of Contents
 
 -   [HttpAdapter][1]
-    -   [download][2]
-    -   [upload][3]
-    -   [update][4]
+    -   [Parameters][2]
+    -   [download][3]
+        -   [Parameters][4]
+    -   [upload][5]
+        -   [Parameters][6]
+    -   [update][7]
+        -   [Parameters][8]
 
 ## HttpAdapter
 
@@ -19,7 +23,7 @@ Optionally accepts an `options` object that can have two attributes:
 -   `updater`: A function responsible for updating data at
     a given URL. It should return a Promise of the resulting URL.
 
-**Parameters**
+### Parameters
 
 -   `options` **{uploader: UploaderType?, updater: UpdaterType?}** 
 
@@ -27,24 +31,24 @@ Optionally accepts an `options` object that can have two attributes:
 
 Retrieves data from a url via https.
 
-**Parameters**
+#### Parameters
 
--   `url` **[string][5]** 
+-   `url` **[string][9]** 
 
-Returns **[Object][6]** Parsed data.
+Returns **[Object][10]** Parsed data.
 
 ### upload
 
-Stores data somewhere where they can be accessed via HTTP.
+Stores data somewhere where it can be accessed via HTTP.
 
-Only available when options.uploader was provided during
+Only available when options.uploader is provided during
 initialization.
 
-**Parameters**
+#### Parameters
 
--   `data` **[Object][6]** 
+-   `data` **[Object][10]** 
 
-Returns **[string][5]** Resulting url such as `https://example.com/data`.
+Returns **[string][9]** Resulting url such as `https://example.com/data`.
 
 ### update
 
@@ -53,21 +57,29 @@ Modifies data somewhere it can be accessed via HTTP.
 Only available when options.updater was provided during
 initialization.
 
-**Parameters**
+#### Parameters
 
--   `url` **[string][5]** 
--   `data` **[Object][6]** 
+-   `url` **[string][9]** 
+-   `data` **[Object][10]** 
 
-Returns **[string][5]** Resulting url such as `https://example.com/data`.
+Returns **[string][9]** Resulting url such as `https://example.com/data`.
 
 [1]: #httpadapter
 
-[2]: #download
+[2]: #parameters
 
-[3]: #upload
+[3]: #download
 
-[4]: #update
+[4]: #parameters-1
 
-[5]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[5]: #upload
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[6]: #parameters-2
+
+[7]: #update
+
+[8]: #parameters-3
+
+[9]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[10]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
